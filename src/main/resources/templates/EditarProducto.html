@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body class=" mt-20  flex items-center">
+
+
+    <main
+        class="container mx-auto px-10 pt-10   self-center  lg:px-32 lg:pt-16   xl:px-24 xl:   2xl:px-32 2xl:pt-28   ">
+
+    <!-- modal de editar -->
+
+    <div id="modal-editar" aria-hidden="true"
+        class="  overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 bottom-0 z-50 flex justify-center bg-black/30  items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full  ">
+        <div class="relative py-4  -mx-2 w-full max-w-md max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white shadow  min-h-full p-8 ">
+
+
+
+                <!-- Modal header -->
+                <div class="w-full   ">
+
+                    <button type="button" id="close-modal-editar"
+                        class="text-black bg-transparent font-montserrat hover:text-gray-900 text-sm w-7 h-7 flex justify-center items-center "
+                        data-modal-toggle="crud-modal">
+
+                        <svg class="w-[13px] h-[13px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+
+
+                    <h3 class=" text-base text-center font-medium m-3 text-black font-montserrat">
+                        Editar producto
+                    </h3>
+                </div>
+
+
+
+
+                <!-- Modal body -->
+                <form class=" mt-20 "  th:action="@{/ActualizarProducto}" th:object="${product}" method="post">
+
+                    <div class="grid gap-y-12 gap-x-20 grid-cols-2">
+
+
+                        <input type="text" id="idproducto"  th:field="*{id}"
+                               class="hidden ">
+
+                        <div class="col-span-2">
+                            <label for="nombreProductoEditar"
+                                class="block mb-3 font-montserrat text-xs font-medium text-black">Nombre del
+                                producto</label>
+                            <input type="text" name="nombreProducto" id="nombreProductoEditar"  th:field="*{nombre}"
+                                class="outline-none border border-bordeInput text-gray-800 text-xs rounded-md block w-full p-3 focus:ring-primario focus:ring-2 "
+                                placeholder="Nombre del producto" required="">
+                        </div>
+
+                        <div class="col-span-2 ">
+                            <label for="CategoriaEditar"
+                                class="block mb-3 font-montserrat text-xs font-medium text-black">Categoria</label>
+                            <input type="text" name="Categoria" id="CategoriaEditar" th:field="*{categoria}"
+                                class="outline-none border border-bordeInput text-gray-800 text-xs rounded-md block w-full p-3  focus:ring-primario focus:ring-2  "
+                                placeholder="Categoria del producto" required="">
+                        </div>
+
+                        <div class="col-span-1 ">
+                            <label for="cantidadEditar"
+                                class="block mb-3 font-montserrat text-xs font-medium text-black">Cantidad
+                                inicial</label>
+                            <input type="number" name="cantidad" id="cantidadEditar"  th:field="*{unidadesActuales}"
+                                class="outline-none border border-bordeInput text-gray-800 text-xs rounded-md block w-full p-3 focus:ring-primario focus:ring-2"
+                                placeholder="0" required="">
+                        </div>
+
+                        <div class="col-span-1 ">
+                            <label for="stockminEditar"
+                                class="block mb-3 font-montserrat text-xs font-medium text-black">Stock
+                                minimo</label>
+                            <input type="number" name="stockmin" id="stockminEditar" th:field="*{stockMinimo}"
+                                class="outline-none border border-bordeInput text-gray-800 text-xs rounded-md block w-full p-3 focus:ring-primario focus:ring-2 "
+                                placeholder="0" required="">
+                        </div>
+
+
+
+
+                        <div class="col-span-2 h-9 flex justify-end w-full mt-10 ">
+
+                            <button type="submit" class="text-white h-9 inline-flex items-center bg-primario focus:ring-4 focus:outline-none rounded-sm font-medium
+                                 text-sm px-5 py-2.5 text-center">
+                                Guardar cambios
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    </main>
+
+
+
+    <script src="/script.js"></script>
+</body>
+
+</html>

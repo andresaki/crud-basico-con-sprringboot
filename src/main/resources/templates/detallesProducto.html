@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+
+<body class=" mt-20  flex items-center">
+
+
+
+    <main
+        class="container mx-auto px-10 pt-10   self-center  lg:px-32 lg:pt-16   xl:px-24 xl:   2xl:px-32 2xl:pt-28   ">
+
+
+
+    <!-- modal de detalles de producto -->
+
+    <div id="modal-detalles" aria-hidden="true"
+        class=" overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 bottom-0 z-50 h-screen  flex justify-center bg-black/30  items-center w-full md:inset-0  max-h-full  ">
+        <div class="relative py-4  -mx-2 w-full max-w-md max-h-full">
+
+
+            <!-- Modal content -->
+            <div class="relative bg-white shadow  h-full md:max-h-[800px] overflow-auto  p-8  ">
+
+
+
+                <!-- Modal header -->
+                <div class="w-full   ">
+
+                    <a type="button" id="close-modal-detalles" href="javascript: history.go(-1)"
+                        class="text-black bg-transparent font-montserrat hover:text-gray-900 text-sm w-7 h-7 flex justify-center items-center "
+                        data-modal-toggle="crud-modal">
+
+                        <svg class="w-[13px] h-[13px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </a>
+
+
+                    <h3 class=" text-base text-center font-medium m-3 text-black font-montserrat">
+                        Detalles del producto
+                    </h3>
+                </div>
+
+
+
+
+                <!-- Modal body -->
+
+
+                <div class="mt-20 grid gap-y-12 gap-x-20 grid-cols-2" th:object="${product}">
+
+                    <div class="col-span-2">
+                        <label class="block mb-3 font-montserrat text-xs font-medium text-gray-500 ">Nombre del
+                            producto:</label>
+
+
+                        <p id="nombreProducto" th:text="*{nombre}"
+                            class="outline-none border-none text-sm font-medium  text-black block w-full p-3">
+                            </p>
+                    </div>
+
+                    <div class="col-span-2">
+                        <label class="block mb-3 font-montserrat text-xs font-medium text-gray-500">Categoria </label>
+                        <p id="categoria" th:text="*{categoria}"
+                            class="outline-none border-none font-medium  text-black text-sm  block w-full p-3">
+                            </p>
+                    </div>
+
+                    <div class="col-span-1">
+                        <label class="block mb-3 font-montserrat text-xs font-medium text-gray-500">Unidades disponibles
+                        </label>
+                        <p id="unidades" th:text="*{unidadesActuales}"
+                            class="outline-none border-none text-primario text-base font-medium  block w-full p-3">
+                            </p>
+                    </div>
+
+                    <div class="col-span-1">
+                        <label class="block mb-3 font-montserrat text-xs font-medium text-gray-500">Stock minimo</label>
+                        <p id="stockmin"  th:text="*{stockMinimo}"
+                            class="outline-none border-none text-orange-500 text-base font-medium  block w-full p-3">
+                            </p>
+                    </div>
+
+                    <div class="col-span-2">
+                        <label class="block mb-3 font-montserrat text-xs font-medium text-gray-500">Precio unitario
+                        </label>
+                        <p id="precioUnitario" th:text="*{precioUnitario}"
+                            class="outline-none border-none font-medium  text-black text-sm  block w-full p-3">
+                            $ 55.000</p>
+                    </div>
+
+                    <div class="col-span-2">
+                        <label class="block mb-3 font-montserrat text-xs font-medium text-gray-500">Proveedor </label>
+                        <p id="proveedor"
+                            class="outline-none border-none font-medium  text-black text-sm  block w-full p-3">
+                            Andres Daniel Herrera Prada ADSO</p>
+                    </div>
+
+                    <div class="col-span-2">
+                        <label class="block mb-3 font-montserrat text-xs font-medium text-gray-500">Ultima fecha de
+                            movimiento de stock </label>
+                        <p id="creacion" th:text="*{fechaCreacion}"
+                            class="outline-none border-none font-medium  text-black text-sm  block w-full p-3">
+                            </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    </main>
+
+
+    <script src="/script.js"></script>
+</body>
+
+</html>

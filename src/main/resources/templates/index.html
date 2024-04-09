@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body class=" mt-20 ">
+
+    <header id="header" class="  text-gray-600  bg-white fixed top-0 left-0 w-full transition duration-700">
+        <div class="container mx-auto flex p-5 items-center flex-wrap lg:flex-nowrap">
+            <a class="flex flex-1 font-medium items-center text-gray-900  cursor-pointer ">
+                <svg class="w-10 h-10 text-white p-2 bg-terceario rounded-full" xmlns="http://www.w3.org/2000/svg"
+                    fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+                <span class="ml-3 text-xl">Empresa</span>
+            </a>
+            <button id="btn_header" class=" sm:block lg:hidden" type="button">
+                <svg class="w-6  fill-terceario inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path
+                        d="M140.001-254.616v-59.999h679.998v59.999H140.001Zm0-195.385v-59.998h679.998v59.998H140.001Zm0-195.384v-59.999h679.998v59.999H140.001Z" />
+                </svg>
+            </button>
+
+            <nav id="nav"
+                class=" hidden block w-screen lg:w-auto flex-grow  md:ml-auto md:mr-auto lg:flex gap-5 flex-wrap items-center text-base justify-center">
+                <a class=" block mt-4  lg:mt-0 text-center cursor-pointer text-gray-900 font-medium border-terceario border-b-2 transition-colors">Home</a>
+                <a class=" block mt-4  lg:mt-0 text-gray-500 text-center cursor-pointer hover:text-gray-900 hover:font-medium hover:border-terceario hover:border-b-2 transition-colors" href="inventario.html">Inventario</a>
+                <a class=" block mt-4  lg:mt-0 text-gray-500 text-center cursor-pointer hover:text-gray-900 hover:font-medium hover:border-terceario hover:border-b-2 transition-colors">Clientes</a>
+                <a class=" block mt-4  lg:mt-0 text-gray-500 text-center cursor-pointer hover:text-gray-900 hover:font-medium hover:border-terceario hover:border-b-2 transition-colors">Pedidos</a>
+                <a class=" block mt-4  lg:mt-0 text-gray-500 text-center cursor-pointer hover:text-gray-900 hover:font-medium hover:border-terceario hover:border-b-2 transition-colors">Proveedores</a>
+                <a class=" block mt-4  lg:mt-0 text-gray-500 text-center cursor-pointer hover:text-gray-900 hover:font-medium hover:border-terceario hover:border-b-2 transition-colors">Contabilidad</a>
+            </nav>
+
+            <div id="separador"
+                class=" hidden mx-auto w-[calc(100%-3rem)] h-1  border-b border-gray-300  my-10 lg:hidden">
+            </div>
+
+            <button id="btn_perfill"
+                class="hidden relative flex  lg:m-0 w-full text-center lg:flex-1  justify-center lg:justify-end lg:flex items-center rounded-full border-0 py-1  focus:outline-none  ">
+                <svg class=" hover:bg-gray-100 rounded-full w-8 h-8 lg:w-7 lg:h-7  fill-terceario" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M4.62 18.12C5.64 17.34 6.78 16.725 8.04 16.275C9.3 15.825 10.62 15.6 12 15.6C13.38 15.6 14.7 15.825 15.96 16.275C17.22 16.725 18.36 17.34 19.38 18.12C20.08 17.3 20.625 16.37 21.015 15.33C21.405 14.29 21.6 13.18 21.6 12C21.6 9.34 20.665 7.075 18.795 5.205C16.925 3.335 14.66 2.4 12 2.4C9.34 2.4 7.075 3.335 5.205 5.205C3.335 7.075 2.4 9.34 2.4 12C2.4 13.18 2.595 14.29 2.985 15.33C3.375 16.37 3.92 17.3 4.62 18.12ZM12 13.2C10.82 13.2 9.825 12.795 9.015 11.985C8.205 11.175 7.8 10.18 7.8 9C7.8 7.82 8.205 6.825 9.015 6.015C9.825 5.205 10.82 4.8 12 4.8C13.18 4.8 14.175 5.205 14.985 6.015C15.795 6.825 16.2 7.82 16.2 9C16.2 10.18 15.795 11.175 14.985 11.985C14.175 12.795 13.18 13.2 12 13.2ZM12 24C10.34 24 8.78 23.685 7.32 23.055C5.86 22.425 4.59 21.57 3.51 20.49C2.43 19.41 1.575 18.14 0.945 16.68C0.315 15.22 0 13.66 0 12C0 10.34 0.315 8.78 0.945 7.32C1.575 5.86 2.43 4.59 3.51 3.51C4.59 2.43 5.86 1.575 7.32 0.945C8.78 0.315 10.34 0 12 0C13.66 0 15.22 0.315 16.68 0.945C18.14 1.575 19.41 2.43 20.49 3.51C21.57 4.59 22.425 5.86 23.055 7.32C23.685 8.78 24 10.34 24 12C24 13.66 23.685 15.22 23.055 16.68C22.425 18.14 21.57 19.41 20.49 20.49C19.41 21.57 18.14 22.425 16.68 23.055C15.22 23.685 13.66 24 12 24ZM12 21.6C13.06 21.6 14.06 21.445 15 21.135C15.94 20.825 16.8 20.38 17.58 19.8C16.8 19.22 15.94 18.775 15 18.465C14.06 18.155 13.06 18 12 18C10.94 18 9.94 18.155 9 18.465C8.06 18.775 7.2 19.22 6.42 19.8C7.2 20.38 8.06 20.825 9 21.135C9.94 21.445 10.94 21.6 12 21.6ZM12 10.8C12.52 10.8 12.95 10.63 13.29 10.29C13.63 9.95 13.8 9.52 13.8 9C13.8 8.48 13.63 8.05 13.29 7.71C12.95 7.37 12.52 7.2 12 7.2C11.48 7.2 11.05 7.37 10.71 7.71C10.37 8.05 10.2 8.48 10.2 9C10.2 9.52 10.37 9.95 10.71 10.29C11.05 10.63 11.48 10.8 12 10.8Z" />
+                </svg>
+
+                <div id="menu_perfill"
+                    class=" hidden absolute  top-[40px] z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-lg sm:shadow-none ring-1 ring-black ring-opacity-5 focus:outline-none"
+                    tabindex="-1">
+
+                    <div class="py-1 " role="none">
+                        <a href="#" class=" hover:text-terceario  hover:fill-terceario flex items-center text-gray-700  px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+                            id="menu-item-0">
+
+                            <svg class="hover:text-terceario" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                                <path
+                                    d="M129.23-566.923q0-76.923 30.654-143.116 30.654-66.192 83.347-114.269l27 29.385q-46.923 42.461-73.962 101-27.038 58.538-27.038 127H129.23Zm661.539 0q0-68.462-27.038-127.385-27.039-58.923-73.962-101.384l27-28.616q52.693 48.077 83.347 114.269 30.654 66.193 30.654 143.116h-40.001ZM200-209.231v-40h64.615v-316.923q0-78.384 49.616-137.884Q363.846-763.539 440-778.154V-800q0-16.539 11.731-28.269Q463.461-840 480-840q16.539 0 28.269 11.731Q520-816.539 520-800v21.846q76.154 14.615 125.769 74.116 49.616 59.5 49.616 137.884v316.923H760v40H200Zm280-286.154Zm0 390.77q-26.846 0-45.731-18.885-18.884-18.885-18.884-45.731h129.23q0 26.846-18.884 45.731-18.885 18.885-45.731 18.885ZM304.615-249.231h350.77v-316.923q0-72.923-51.231-124.154-51.231-51.23-124.154-51.23t-124.154 51.23q-51.231 51.231-51.231 124.154v316.923Z" />
+                            </svg>
+
+                            <p class=" ml-4">Notificaciones</p>
+
+                        </a>
+                        <a  href="#" class=" hover:text-terceario  hover:fill-terceario flex items-center text-gray-700  px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+                            id="menu-item-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                                <path
+                                    d="m405.384-120-14.461-115.692q-19.154-5.769-41.423-18.154-22.269-12.385-37.885-26.538L204.923-235l-74.616-130 92.231-69.539q-1.769-10.846-2.923-22.346-1.154-11.5-1.154-22.346 0-10.077 1.154-21.192t2.923-25.038L130.307-595l74.616-128.462 105.923 44.616q17.923-14.923 38.769-26.923 20.846-12 40.539-18.539L405.384-840h149.232l14.461 116.461q23 8.077 40.654 18.539 17.654 10.461 36.346 26.154l109-44.616L829.693-595l-95.308 71.846q3.308 12.385 3.692 22.731.385 10.346.385 20.423 0 9.308-.769 19.654-.77 10.346-3.539 25.038L827.923-365l-74.615 130-107.231-46.154q-18.692 15.693-37.615 26.923-18.923 11.231-39.385 17.77L554.616-120H405.384ZM440-160h78.231L533-268.308q30.231-8 54.423-21.961 24.192-13.962 49.269-38.269L736.462-286l39.769-68-87.539-65.769q5-17.077 6.616-31.423 1.615-14.346 1.615-28.808 0-15.231-1.615-28.808-1.616-13.577-6.616-29.884L777.769-606 738-674l-102.077 42.769q-18.154-19.923-47.731-37.346t-55.961-23.115L520-800h-79.769l-12.462 107.538q-30.231 6.462-55.577 20.808-25.346 14.346-50.423 39.423L222-674l-39.769 68L269-541.231q-5 13.462-7 29.231-2 15.769-2 32.769Q260-464 262-449q2 15 6.231 29.231l-86 65.769L222-286l99-42q23.538 23.769 48.885 38.115 25.346 14.347 57.115 22.347L440-160Zm38.923-220q41.846 0 70.923-29.077 29.077-29.077 29.077-70.923 0-41.846-29.077-70.923Q520.769-580 478.923-580q-42.077 0-71.039 29.077-28.961 29.077-28.961 70.923 0 41.846 28.961 70.923Q436.846-380 478.923-380ZM480-480Z" />
+                            </svg>
+
+                            <p class="ml-4">Ajustes</p>
+
+                        </a>
+
+                    </div>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-10 pt-16  sm:px-20 lg:px-40 lg:pt-20 2xl:px-80 2xl:pt-36 ">
+
+        <div>
+        <h1 class="text-center text-slate-600  font-medium text-base mb-24  lg:text-lg 2xl:mb-36">Datos Interesantes
+        </h1>
+
+        <div class="grid grid-cols-3  gap-y-7 gap-x-9 md:gap-y-12  lg:grid-cols-4 ">
+            <a href="#" class="col-span-3 lg:col-span-1">
+                <p class="font-semibold text-base text-primario mb-3 lg:text-2xl">61</p>
+                <p class="font-medium text-sm xl:text-base xl:text-gray-500 text-black">pedidos</p>
+            </a>
+
+            <a href="#">
+                <p class="font-semibold text-base text-terceario mb-3 lg:text-xl">55</p>
+                <p class="font-normal text-sm leading-tight text-gray-400">pedidos completados</p>
+            </a>
+
+
+            <a href="#">
+                <p class="font-semibold text-base text-terceario mb-3 lg:text-xl">5</p>
+                <p class="font-normal text-sm leading-tight text-gray-400">pedidos pendientes</p>
+            </a>
+
+
+            <a href="#">
+                <p class="font-semibold text-base text-terceario mb-3 lg:text-xl">1</p>
+                <p class="font-normal text-sm leading-tight text-gray-400">pedidos cancelados</p>
+            </a>
+        </div>
+
+        <!-- separador -->
+        <div class="w-full h-px bg-slate-300 my-9 md:my-14  lg:invisible  lg:my-8"></div>
+
+        <div class="grid grid-cols-2  gap-x-9 lg:grid-cols-4">
+
+            <a href="#" class="col-span-1">
+                <p class="font-semibold text-base text-primario mb-3 lg:text-2xl">105</p>
+                <p class="font-medium text-sm xl:text-base xl:text-gray-500 text-black">Inventario</p>
+            </a>
+
+            <a href="#">
+                <p class="font-semibold text-base text-terceario mb-3 lg:text-xl">12</p>
+                <p class="font-normal text-sm leading-tight text-gray-400">Productos bajos</p>
+            </a>
+        </div>
+
+        <!-- separador -->
+        <div class="w-full h-px bg-slate-300 my-9 md:my-14 lg:invisible lg:my-8"></div>
+
+        <div class="grid grid-cols-2  gap-x-9 lg:grid-cols-4">
+
+            <a href="#" class="col-span-1">
+                <p class="font-semibold text-base text-primario mb-3 lg:text-xl">$ 3´450.000</p>
+                <p class="font-medium text-sm xl:text-base xl:text-gray-500 text-black">Ingresos</p>
+            </a>
+
+            <a href="#" class="col-span-1">
+                <p class="font-semibold text-base text-primario mb-3 lg:text-xl">$ 540.000</p>
+                <p class="font-medium text-sm xl:text-base xl:text-gray-500 text-black">Egresos</p>
+            </a>
+        </div>
+
+        </div>
+
+    </main>
+
+
+    <div class=" fixed bottom-6 left-7 flex flex-col items-center">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M5 21C4.45 21 3.97917 20.8042 3.5875 20.4125C3.19583 20.0208 3 19.55 3 19V5C3 4.45 3.19583 3.97917 3.5875 3.5875C3.97917 3.19583 4.45 3 5 3H9.2C9.41667 2.4 9.77917 1.91667 10.2875 1.55C10.7958 1.18333 11.3667 1 12 1C12.6333 1 13.2042 1.18333 13.7125 1.55C14.2208 1.91667 14.5833 2.4 14.8 3H19C19.55 3 20.0208 3.19583 20.4125 3.5875C20.8042 3.97917 21 4.45 21 5V19C21 19.55 20.8042 20.0208 20.4125 20.4125C20.0208 20.8042 19.55 21 19 21H5ZM5 19H19V5H5V19ZM7 17H14V15H7V17ZM7 13H17V11H7V13ZM7 9H17V7H7V9ZM12 4.25C12.2167 4.25 12.3958 4.17917 12.5375 4.0375C12.6792 3.89583 12.75 3.71667 12.75 3.5C12.75 3.28333 12.6792 3.10417 12.5375 2.9625C12.3958 2.82083 12.2167 2.75 12 2.75C11.7833 2.75 11.6042 2.82083 11.4625 2.9625C11.3208 3.10417 11.25 3.28333 11.25 3.5C11.25 3.71667 11.3208 3.89583 11.4625 4.0375C11.6042 4.17917 11.7833 4.25 12 4.25Z"
+                fill="#0256A4" />
+        </svg>
+
+        <p class="font-light text-sm text-black">reportes</p>
+    </div>
+
+    <div class=" hidden  lg:fixed lg:bottom-16 bottom-20 right-8 lg:flex flex-col items-center">
+        <svg class="lg:w-4" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M5 21C4.45 21 3.97917 20.8042 3.5875 20.4125C3.19583 20.0208 3 19.55 3 19V5C3 4.45 3.19583 3.97917 3.5875 3.5875C3.97917 3.19583 4.45 3 5 3H12V5H5V19H12V21H5ZM16 17L14.625 15.55L17.175 13H9V11H17.175L14.625 8.45L16 7L21 12L16 17Z"
+                fill="#111111" />
+        </svg>
+
+    </div>
+
+    <div id="full-pantalla" class=" hidden  lg:fixed bottom-8 right-8 lg:flex flex-col items-center">
+        <svg class="lg:w-4" id="full" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 21V16H5V19H8V21H3ZM16 21V19H19V16H21V21H16ZM3 8V3H8V5H5V8H3ZM19 8V5H16V3H21V8H19Z"
+                fill="#111111" />
+        </svg>
+
+        <svg id="close" class="hidden lg:w-4" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960"
+            width="20">
+            <path
+                d="M240-120v-120H120v-80h200v200h-80Zm400 0v-200h200v80H720v120h-80ZM120-640v-80h120v-120h80v200H120Zm520 0v-200h80v120h120v80H640Z" />
+        </svg>
+
+    </div>
+
+
+
+    <script src="../static/script2.js"></script>
+</body>
+
+</html>

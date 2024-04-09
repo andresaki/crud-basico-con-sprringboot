@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body class=" mt-20  flex items-center">
+
+    <header id="header" class="  text-gray-600  bg-white fixed top-0 left-0 w-full transition duration-700 z-20">
+        <div class="container mx-auto flex p-5 items-center flex-wrap lg:flex-nowrap">
+            <a class="flex flex-1 font-medium items-center text-gray-900  cursor-pointer ">
+                <svg class="w-10 h-10 text-white p-2 bg-terceario rounded-full" xmlns="http://www.w3.org/2000/svg"
+                    fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+                <span class="ml-3 text-xl">Empresa</span>
+            </a>
+            <button id="btn_header" class=" sm:block lg:hidden" type="button">
+                <svg class="w-6  fill-terceario inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path
+                        d="M140.001-254.616v-59.999h679.998v59.999H140.001Zm0-195.385v-59.998h679.998v59.998H140.001Zm0-195.384v-59.999h679.998v59.999H140.001Z" />
+                </svg>
+            </button>
+
+            <nav id="nav"
+                class=" hidden block w-screen lg:w-auto flex-grow  md:ml-auto md:mr-auto lg:flex gap-5 flex-wrap items-center text-base justify-center">
+                <a class=" block mt-16 lg:mt-0 text-gray-500 text-center cursor-pointer hover:text-gray-900 hover:font-medium hover:border-terceario hover:border-b-2 transition-colors"
+                    href="index.html">Home</a>
+                <a class=" block mt-4  lg:mt-0 text-center cursor-pointer text-gray-900 font-medium border-terceario border-b-2 transition-colors"
+                    href="inventario.html">Inventario</a>
+                <a
+                    class=" block mt-4  lg:mt-0 text-gray-500 text-center cursor-pointer hover:text-gray-900 hover:font-medium hover:border-terceario hover:border-b-2 transition-colors">Clientes</a>
+                <a
+                    class=" block mt-4  lg:mt-0 text-gray-500 text-center cursor-pointer hover:text-gray-900 hover:font-medium hover:border-terceario hover:border-b-2 transition-colors">Pedidos</a>
+                <a
+                    class=" block mt-4  lg:mt-0 text-gray-500 text-center cursor-pointer hover:text-gray-900 hover:font-medium hover:border-terceario hover:border-b-2 transition-colors">Proveedores</a>
+                <a
+                    class=" block mt-4  lg:mt-0 text-gray-500 text-center cursor-pointer hover:text-gray-900 hover:font-medium hover:border-terceario hover:border-b-2 transition-colors">Contabilidad</a>
+            </nav>
+
+            <div id="separador"
+                class=" hidden mx-auto w-[calc(100%-3rem)] h-1  border-b border-gray-300  my-10 lg:hidden">
+            </div>
+
+            <button id="btn_perfil"
+                class="hidden relative flex  lg:m-0 w-full text-center lg:flex-1  justify-center lg:justify-end lg:flex items-center rounded-full border-0 py-1  focus:outline-none  ">
+                <svg class=" hover:bg-gray-100 rounded-full w-8 h-8 lg:w-6 lg:h-6  fill-terceario" viewBox="0 0 24 24"
+                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M4.62 18.12C5.64 17.34 6.78 16.725 8.04 16.275C9.3 15.825 10.62 15.6 12 15.6C13.38 15.6 14.7 15.825 15.96 16.275C17.22 16.725 18.36 17.34 19.38 18.12C20.08 17.3 20.625 16.37 21.015 15.33C21.405 14.29 21.6 13.18 21.6 12C21.6 9.34 20.665 7.075 18.795 5.205C16.925 3.335 14.66 2.4 12 2.4C9.34 2.4 7.075 3.335 5.205 5.205C3.335 7.075 2.4 9.34 2.4 12C2.4 13.18 2.595 14.29 2.985 15.33C3.375 16.37 3.92 17.3 4.62 18.12ZM12 13.2C10.82 13.2 9.825 12.795 9.015 11.985C8.205 11.175 7.8 10.18 7.8 9C7.8 7.82 8.205 6.825 9.015 6.015C9.825 5.205 10.82 4.8 12 4.8C13.18 4.8 14.175 5.205 14.985 6.015C15.795 6.825 16.2 7.82 16.2 9C16.2 10.18 15.795 11.175 14.985 11.985C14.175 12.795 13.18 13.2 12 13.2ZM12 24C10.34 24 8.78 23.685 7.32 23.055C5.86 22.425 4.59 21.57 3.51 20.49C2.43 19.41 1.575 18.14 0.945 16.68C0.315 15.22 0 13.66 0 12C0 10.34 0.315 8.78 0.945 7.32C1.575 5.86 2.43 4.59 3.51 3.51C4.59 2.43 5.86 1.575 7.32 0.945C8.78 0.315 10.34 0 12 0C13.66 0 15.22 0.315 16.68 0.945C18.14 1.575 19.41 2.43 20.49 3.51C21.57 4.59 22.425 5.86 23.055 7.32C23.685 8.78 24 10.34 24 12C24 13.66 23.685 15.22 23.055 16.68C22.425 18.14 21.57 19.41 20.49 20.49C19.41 21.57 18.14 22.425 16.68 23.055C15.22 23.685 13.66 24 12 24ZM12 21.6C13.06 21.6 14.06 21.445 15 21.135C15.94 20.825 16.8 20.38 17.58 19.8C16.8 19.22 15.94 18.775 15 18.465C14.06 18.155 13.06 18 12 18C10.94 18 9.94 18.155 9 18.465C8.06 18.775 7.2 19.22 6.42 19.8C7.2 20.38 8.06 20.825 9 21.135C9.94 21.445 10.94 21.6 12 21.6ZM12 10.8C12.52 10.8 12.95 10.63 13.29 10.29C13.63 9.95 13.8 9.52 13.8 9C13.8 8.48 13.63 8.05 13.29 7.71C12.95 7.37 12.52 7.2 12 7.2C11.48 7.2 11.05 7.37 10.71 7.71C10.37 8.05 10.2 8.48 10.2 9C10.2 9.52 10.37 9.95 10.71 10.29C11.05 10.63 11.48 10.8 12 10.8Z" />
+                </svg>
+
+                <div id="menu_perfil"
+                    class=" hidden absolute  top-[40px] z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                    tabindex="-1">
+
+                    <div class="py-1 " role="none">
+                        <a href="#"
+                            class=" hover:text-primario  hover:fill-primario flex items-center text-gray-700  px-4 py-2 text-sm"
+                            >
+
+                            <svg class="hover:text-terceario" xmlns="http://www.w3.org/2000/svg" height="24"
+                                viewBox="0 -960 960 960" width="24">
+                                <path
+                                    d="M129.23-566.923q0-76.923 30.654-143.116 30.654-66.192 83.347-114.269l27 29.385q-46.923 42.461-73.962 101-27.038 58.538-27.038 127H129.23Zm661.539 0q0-68.462-27.038-127.385-27.039-58.923-73.962-101.384l27-28.616q52.693 48.077 83.347 114.269 30.654 66.193 30.654 143.116h-40.001ZM200-209.231v-40h64.615v-316.923q0-78.384 49.616-137.884Q363.846-763.539 440-778.154V-800q0-16.539 11.731-28.269Q463.461-840 480-840q16.539 0 28.269 11.731Q520-816.539 520-800v21.846q76.154 14.615 125.769 74.116 49.616 59.5 49.616 137.884v316.923H760v40H200Zm280-286.154Zm0 390.77q-26.846 0-45.731-18.885-18.884-18.885-18.884-45.731h129.23q0 26.846-18.884 45.731-18.885 18.885-45.731 18.885ZM304.615-249.231h350.77v-316.923q0-72.923-51.231-124.154-51.231-51.23-124.154-51.23t-124.154 51.23q-51.231 51.231-51.231 124.154v316.923Z" />
+                            </svg>
+
+                            <p class=" ml-4">Notificaciones</p>
+
+                        </a>
+                        <a href="#"
+                            class=" hover:text-primario  hover:fill-primario flex items-center text-gray-700  px-4 py-2 text-sm"
+                            >
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                                <path
+                                    d="m405.384-120-14.461-115.692q-19.154-5.769-41.423-18.154-22.269-12.385-37.885-26.538L204.923-235l-74.616-130 92.231-69.539q-1.769-10.846-2.923-22.346-1.154-11.5-1.154-22.346 0-10.077 1.154-21.192t2.923-25.038L130.307-595l74.616-128.462 105.923 44.616q17.923-14.923 38.769-26.923 20.846-12 40.539-18.539L405.384-840h149.232l14.461 116.461q23 8.077 40.654 18.539 17.654 10.461 36.346 26.154l109-44.616L829.693-595l-95.308 71.846q3.308 12.385 3.692 22.731.385 10.346.385 20.423 0 9.308-.769 19.654-.77 10.346-3.539 25.038L827.923-365l-74.615 130-107.231-46.154q-18.692 15.693-37.615 26.923-18.923 11.231-39.385 17.77L554.616-120H405.384ZM440-160h78.231L533-268.308q30.231-8 54.423-21.961 24.192-13.962 49.269-38.269L736.462-286l39.769-68-87.539-65.769q5-17.077 6.616-31.423 1.615-14.346 1.615-28.808 0-15.231-1.615-28.808-1.616-13.577-6.616-29.884L777.769-606 738-674l-102.077 42.769q-18.154-19.923-47.731-37.346t-55.961-23.115L520-800h-79.769l-12.462 107.538q-30.231 6.462-55.577 20.808-25.346 14.346-50.423 39.423L222-674l-39.769 68L269-541.231q-5 13.462-7 29.231-2 15.769-2 32.769Q260-464 262-449q2 15 6.231 29.231l-86 65.769L222-286l99-42q23.538 23.769 48.885 38.115 25.346 14.347 57.115 22.347L440-160Zm38.923-220q41.846 0 70.923-29.077 29.077-29.077 29.077-70.923 0-41.846-29.077-70.923Q520.769-580 478.923-580q-42.077 0-71.039 29.077-28.961 29.077-28.961 70.923 0 41.846 28.961 70.923Q436.846-380 478.923-380ZM480-480Z" />
+                            </svg>
+
+                            <p class="ml-4">Ajustes</p>
+
+                        </a>
+
+                    </div>
+                </div>
+            </button>
+        </div>
+    </header>
+
+
+
+    <main
+        class="container mx-auto px-10 pt-10   self-center  lg:px-32 lg:pt-16   xl:px-24 xl:   2xl:px-32 2xl:pt-28   ">
+
+        <div class="w-full flex justify-between items-center ">
+
+            <!-- busqueda y, filtro y historial -->
+            <div class=" flex items-center gap-4">
+                <div>
+                    <input
+                        class="outline-none border-b-2 pl-1 pb-[1px] border-primario w-48 h-7 font-light md:w-56  md:h-10  md:font-normal  lg:text-sm lg:pb-0 text-slate-600"
+                        type="search" placeholder="Buscar">
+                </div>
+
+                <div class="cursor-pointer relative " id="filtro">
+                    <svg class=" ml-9 w-6  lg:w-5  lg:ml-0 fill-gray-600" xmlns="http://www.w3.org/2000/svg" height="24"
+                        viewBox="0 -960 960 960" width="24">
+                        <path
+                            d="M470.769-200q-13.154 0-21.962-8.807Q440-217.615 440-230.769v-223.077L224.154-726.769q-8.077-10.77-2.193-22Q227.846-760 240.769-760h478.462q12.923 0 18.808 11.231 5.884 11.23-2.193 22L520-453.846v223.077q0 13.154-8.807 21.962Q502.385-200 489.231-200h-18.462ZM480-468l198-252H282l198 252Zm0 0Z" />
+                    </svg>
+
+                    <div class="z-10 hidden absolute -top-1 left-16 bg-white rounded-md  w-48 h-auto shadow-xl p-4 text-base border border-gray-200"
+                        id="menu-filtro">
+
+                        <div class="flex gap-3 mb-2">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M6.57047 8.52562L9.99997 2.88458L13.4295 8.52562H6.57047ZM14.5833 17.6923C13.7126 17.6923 12.9767 17.3918 12.3758 16.7909C11.7748 16.1899 11.4743 15.454 11.4743 14.5833C11.4743 13.7126 11.7748 12.9767 12.3758 12.3758C12.9767 11.7748 13.7126 11.4743 14.5833 11.4743C15.454 11.4743 16.1899 11.7748 16.7908 12.3758C17.3918 12.9767 17.6923 13.7126 17.6923 14.5833C17.6923 15.454 17.3918 16.1899 16.7908 16.7909C16.1899 17.3918 15.454 17.6923 14.5833 17.6923ZM3.14099 17.2756V11.891H8.52562V17.2756H3.14099ZM14.5828 16.859C15.2199 16.859 15.7585 16.639 16.1987 16.1991C16.6389 15.7593 16.859 15.2208 16.859 14.5838C16.859 13.9467 16.639 13.4081 16.1991 12.9679C15.7593 12.5278 15.2208 12.3077 14.5838 12.3077C13.9467 12.3077 13.4081 12.5276 12.9679 12.9675C12.5277 13.4074 12.3077 13.9458 12.3077 14.5829C12.3077 15.2199 12.5276 15.7585 12.9675 16.1987C13.4073 16.6389 13.9458 16.859 14.5828 16.859ZM3.97432 16.4423H7.69228V12.7243H3.97432V16.4423ZM8.02241 7.69229H11.9775L9.99997 4.52242L8.02241 7.69229Z"
+                                    fill="#494949" />
+                            </svg>
+
+                            <p class="font-medium text-base font-montserrat">Categoria</p>
+                        </div>
+
+                        <div class="ml-8 mb-1 text-gray-400 "> categoria 1</div>
+                        <div class="ml-8 mb-1 text-gray-400 "> categoria 2</div>
+                        <div class="ml-8 mb-1 text-gray-400 "> categoria 3</div>
+                        <div class="ml-8 mb-1 text-gray-400 "> categoria 4</div>
+
+
+
+                        <div class="flex gap-3 mt-6 mb-2">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M4.17948 18C3.80662 18 3.48904 17.8689 3.22675 17.6066C2.96447 17.3443 2.83333 17.0267 2.83333 16.6539V7.38623C2.59401 7.28687 2.39529 7.12634 2.23717 6.90465C2.07906 6.68296 2 6.42842 2 6.14102V4.34615C2 3.97328 2.13114 3.65571 2.39342 3.39342C2.65571 3.13114 2.97328 3 3.34615 3H15.6539C16.0267 3 16.3443 3.13114 16.6066 3.39342C16.8689 3.65571 17 3.97328 17 4.34615V6.14102C17 6.42842 16.9209 6.68296 16.7628 6.90465C16.6047 7.12634 16.406 7.28687 16.1667 7.38623V16.6539C16.1667 17.0267 16.0355 17.3443 15.7733 17.6066C15.511 17.8689 15.1934 18 14.8205 18H4.17948ZM3.66667 7.48719V16.5737C3.66667 16.7447 3.7281 16.8862 3.85096 16.9984C3.97382 17.1106 4.12606 17.1667 4.30769 17.1667H14.8205C14.9701 17.1667 15.093 17.1186 15.1891 17.0224C15.2853 16.9263 15.3333 16.8034 15.3333 16.6539V7.48719H3.66667ZM3.34615 6.65385H15.6539C15.8034 6.65385 15.9263 6.60577 16.0224 6.5096C16.1186 6.41345 16.1667 6.29059 16.1667 6.14102V4.34615C16.1667 4.19658 16.1186 4.07371 16.0224 3.97756C15.9263 3.88141 15.8034 3.83333 15.6539 3.83333H3.34615C3.19658 3.83333 3.07372 3.88141 2.97756 3.97756C2.88141 4.07371 2.83333 4.19658 2.83333 4.34615V6.14102C2.83333 6.29059 2.88141 6.41345 2.97756 6.5096C3.07372 6.60577 3.19658 6.65385 3.34615 6.65385ZM7.32052 11.2212H11.6795V10.5H7.32052V11.2212Z"
+                                    fill="#494949" />
+                            </svg>
+
+
+                            <p class="font-medium text-base font-montserrat">Stock</p>
+                        </div>
+
+                        <div class="ml-8 mb-1 text-gray-400 "> Stock escaso</div>
+                        <div class="ml-8 mb-1 text-gray-400 "> Stock nulo</div>
+
+                    </div>
+                </div>
+
+                <svg class="self- w-6 lg:w-5   fill-gray-600" xmlns="http://www.w3.org/2000/svg" height="24"
+                    viewBox="0 -960 960 960" width="24">
+                    <path
+                        d="M478.462-160q-121.847 0-212.424-79.577Q175.461-319.154 161.231-440h40.461Q218-336.769 295.731-268.385 373.462-200 478.462-200q117 0 198.5-81.5t81.5-198.5q0-117-81.5-198.5t-198.5-81.5q-62.077 0-116.693 26.231-54.615 26.231-96.384 72.231h99.23v40H198.461v-166.154h40v95.538q46.385-50.923 108.731-79.385Q409.538-800 478.462-800q66.538 0 124.73 25.038 58.193 25.039 101.693 68.539t68.538 101.692Q798.462-546.539 798.462-480q0 66.539-25.039 124.731-25.038 58.192-68.538 101.692-43.5 43.5-101.693 68.539Q545-160 478.462-160Zm128.153-165.846L460.769-471.692V-680h40v191.692l134.154 134.154-28.308 28.308Z" />
+                </svg>
+            </div>
+
+            <!-- btn agregar -->
+            <a id="btn_modal"  th:href="@{/NuevoProducto}"
+                class="bg-primario z-10 rounded-full w-9 h-9 flex items-center justify-center fixed bottom-8 right-10  lg:static lg:w-8 lg:h-8 xl:w-10 xl:h-10"
+                >
+                <svg class="w-6  fill-white inline lg:w-5" xmlns="http://www.w3.org/2000/svg" height="24"
+                    viewBox="0 -960 960 960" width="24">
+                    <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+                </svg>
+            </a>
+
+
+        </div>
+
+
+
+
+
+
+        <!-- tabla -->
+        <div class="relative overflow-x-auto mt-16 lg:mx-8 xl:mx-7 border-x 2xl:mx-16 2xl:mt-20">
+
+            <table class="w-full text-sm  text-left border text-gray-500 font-light">
+                <thead class="bg-white border-b">
+                    <tr class=" text-sm  text-black h-12 ">
+                        <th scope="col" class=" pl-10 pr-20  font-medium">
+                            Id
+                        </th>
+                        <th scope="col" class="pr-48   font-medium">
+                            Nombre
+                        </th>
+                        <th scope="col" class="pr-28  font-medium">
+                            Unidades
+                        </th>
+                        <th scope="col" class="pr-32 whitespace-nowrap   font-medium ">
+                            Stock min
+                        </th>
+                        <th scope="col" class="pr-20   font-medium">
+                            Modificaion
+                        </th>
+                        <th scope="col" class="pr-32 ">
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody class="">
+
+
+                    <tr class="bg-white border-b cursor-default  h-9 hover:bg-gray-50 font-light text-xs text-neutral-500 " th:each="producto : ${productoList}">
+
+                        <td class="pl-10"  th:text="${producto.id}"  ></td>
+                        <td id="boton-modal-dellates"  > <a  th:text="${producto.nombre}"  th:href="@{/VerProducto/{id}(id=${producto.id})}" ></a></td>
+                        <td class="pl-4" th:text="${producto.unidadesActuales}" ></td>
+                        <td class="pl-7 font-medium text-primario" th:text="${producto.stockMinimo}"></td>
+                        <td class="" th:text="${producto.fechaCreacion}"></td>
+
+
+                        <td class="">
+                            <button id="btn_tabla"
+                                class=" relative flex  lg:m-0 w-full text-center justify-center   items-center rounded-full border-0 py-1  focus:outline-none  ">
+
+                                <svg class=" hover:bg-gray-200 rounded-full " xmlns="http://www.w3.org/2000/svg"
+                                    height="24" viewBox="0 -960 960 960" width="24">
+                                    <path
+                                        d="M249.231-420.001q-24.749 0-42.374-17.625-17.624-17.625-17.624-42.374 0-24.749 17.624-42.374 17.625-17.625 42.374-17.625 24.75 0 42.374 17.625Q309.23-504.749 309.23-480q0 24.749-17.625 42.374-17.624 17.625-42.374 17.625Zm230.769 0q-24.749 0-42.374-17.625-17.625-17.625-17.625-42.374 0-24.749 17.625-42.374 17.625-17.625 42.374-17.625 24.749 0 42.374 17.625 17.625 17.625 17.625 42.374 0 24.749-17.625 42.374-17.625 17.625-42.374 17.625Zm230.769 0q-24.75 0-42.374-17.625Q650.77-455.251 650.77-480q0-24.749 17.625-42.374 17.624-17.625 42.374-17.625 24.749 0 42.374 17.625 17.624 17.625 17.624 42.374 0 24.749-17.624 42.374-17.625 17.625-42.374 17.625Z" />
+                                </svg>
+
+                                <div id="menu_opciones_tabla"
+                                    class=" hidden absolute  right-20 z-20  w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                     tabindex="-1">
+
+                                    <div class="py-1 " role="none">
+                                        <a id="boton-modal-editar"  th:href="@{/EditarProducto/{id}(id=${producto.id})}"
+                                            class=" hover:text-primario  hover:fill-primario flex items-center text-gray-700  px-3 py-1 text-sm cursor-pointer"
+                                            role="menuitem" tabindex="-1" >
+
+                                            <svg width="18" height="20" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M8.03331 13C6.63843 13 5.45082 12.5133 4.47049 11.5398C3.49015 10.5662 2.99997 9.38632 2.99997 8V7.07565L1.59997 8.47565L1.12817 8.00385L3.33331 5.79872L5.53844 8.00385L5.06664 8.47565L3.66664 7.07565V8C3.66664 9.20512 4.09036 10.2286 4.93779 11.0705C5.78524 11.9124 6.81707 12.3333 8.03331 12.3333C8.29655 12.3333 8.56493 12.3064 8.83844 12.2526C9.11194 12.1987 9.37775 12.118 9.63587 12.0103L10.1359 12.5103C9.80767 12.6692 9.46622 12.7906 9.11151 12.8744C8.75681 12.9581 8.39741 13 8.03331 13ZM12.6666 10.2013L10.4615 7.99615L10.9333 7.52435L12.3333 8.92435V8C12.3333 6.79488 11.9096 5.77137 11.0622 4.92948C10.2147 4.08761 9.18287 3.66667 7.96664 3.66667C7.7034 3.66667 7.43502 3.69359 7.16151 3.74743C6.88801 3.80128 6.6222 3.88205 6.36407 3.98975L5.86407 3.48975C6.19227 3.33077 6.53373 3.2094 6.88844 3.12563C7.24314 3.04188 7.60254 3 7.96664 3C9.36152 3 10.5491 3.48675 11.5295 4.46025C12.5098 5.43376 13 6.61368 13 8V8.92435L14.4 7.52435L14.8718 7.99615L12.6666 10.2013Z"
+                                                    fill="black" />
+                                            </svg>
+
+
+                                            <p class=" font-medium ml-4">Editar</p>
+
+                                        </a>
+
+
+
+                                        <a class=" hover:text-primario  hover:fill-primario flex items-center text-gray-700  px-3 py-1 text-sm"
+                                           th:href="@{/EliminarCliente/{id}(id=${producto.id})}"
+                                            >
+                                            <svg width="18" height="20" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M5.07696 13.3334C4.77867 13.3334 4.52461 13.2285 4.31477 13.0187C4.10495 12.8088 4.00004 12.5548 4.00004 12.2565V4.00006H3.33337V3.33339H6.00004V2.82056H10V3.33339H12.6667V4.00006H12V12.2565C12 12.5633 11.8973 12.8195 11.6917 13.0251C11.4862 13.2306 11.23 13.3334 10.9231 13.3334H5.07696ZM11.3334 4.00006H4.66671V12.2565C4.66671 12.3761 4.70517 12.4744 4.78209 12.5513C4.85901 12.6283 4.9573 12.6667 5.07696 12.6667H10.9231C11.0257 12.6667 11.1197 12.624 11.2052 12.5385C11.2906 12.453 11.3334 12.359 11.3334 12.2565V4.00006ZM6.53849 11.3334H7.20517V5.33339H6.53849V11.3334ZM8.79491 11.3334H9.46159V5.33339H8.79491V11.3334Z"
+                                                    fill="black" />
+                                            </svg>
+
+
+                                            <p class="font-medium ml-4">Eliminar</p>
+
+                                        </a>
+                                        <a id="boton-modal-stock"
+                                            class=" hover:text-primario  hover:fill-primario flex items-center text-gray-700  px-3 py-1 text-sm"
+                                            role="menuitem" tabindex="-1" >
+                                            <svg width="18" height="20" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M3.74354 13.3333C3.43671 13.3333 3.18051 13.2305 2.97496 13.025C2.7694 12.8194 2.66663 12.5632 2.66663 12.2564V3.74354C2.66663 3.43671 2.7694 3.18051 2.97496 2.97496C3.18051 2.7694 3.43671 2.66662 3.74354 2.66662H9.33458L8.66791 3.33329H3.74354C3.64099 3.33329 3.54697 3.37602 3.46149 3.46149C3.37603 3.54697 3.33329 3.64099 3.33329 3.74354V12.2564C3.33329 12.3589 3.37603 12.4529 3.46149 12.5384C3.54697 12.6239 3.64099 12.6666 3.74354 12.6666H12.2564C12.3589 12.6666 12.4529 12.6239 12.5384 12.5384C12.6239 12.4529 12.6666 12.3589 12.6666 12.2564V7.26406L13.3333 6.59739V12.2564C13.3333 12.5632 13.2305 12.8194 13.025 13.025C12.8194 13.2305 12.5632 13.3333 12.2564 13.3333H3.74354ZM6.66663 9.33329V7.58969L12.6294 1.62687C12.7029 1.55337 12.7803 1.50252 12.8615 1.47431C12.9427 1.44611 13.0282 1.43201 13.1179 1.43201C13.2017 1.43201 13.2835 1.44611 13.3634 1.47431C13.4433 1.50252 13.5158 1.5491 13.5807 1.61406L14.3218 2.33329C14.3927 2.40679 14.4465 2.48777 14.4833 2.57624C14.52 2.6647 14.5384 2.7538 14.5384 2.84354C14.5384 2.93329 14.525 3.01812 14.498 3.09804C14.4711 3.17795 14.4209 3.25466 14.3474 3.32817L8.34611 9.33329H6.66663ZM7.33329 8.66663H8.06149L12.5051 4.22304L12.141 3.85894L11.7346 3.46919L7.33329 7.87047V8.66663Z"
+                                                    fill="black" />
+                                            </svg>
+
+
+                                            <p class=" font-medium ml-4">Stock</p>
+
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+
+        <nav class=" flex justify-center my-5 ">
+            <ul class="flex items-center -space-x-px h-8  text-sm">
+                <li>
+                    <a href="#"
+                        class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white  border-e-0   hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                        <span class="sr-only">Previous</span>
+                        <svg class="w-2 h-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 1 1 5l4 4" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="flex items-center text-xs justify-center px-3 h-8 leading-tight text-gray-500 bg-white   hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white  border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                </li>
+                <li>
+                    <a href="#" aria-current="page"
+                        class=" flex items-center text-xs  justify-center px-3 h-8 leading-tight text-white   bg-primario hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="flex items-center  text-xs  justify-center px-3 h-8 leading-tight text-gray-500 bg-white   hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="flex items-center text-xs  justify-center px-3 h-8 leading-tight text-gray-500 bg-white   hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white   hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                        <span class="sr-only">Next</span>
+                        <svg class="w-2 h-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 9 4-4-4-4" />
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+
+
+    </main>
+
+    <div class=" fixed bottom-6 left-7 flex flex-col items-center">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M5 21C4.45 21 3.97917 20.8042 3.5875 20.4125C3.19583 20.0208 3 19.55 3 19V5C3 4.45 3.19583 3.97917 3.5875 3.5875C3.97917 3.19583 4.45 3 5 3H9.2C9.41667 2.4 9.77917 1.91667 10.2875 1.55C10.7958 1.18333 11.3667 1 12 1C12.6333 1 13.2042 1.18333 13.7125 1.55C14.2208 1.91667 14.5833 2.4 14.8 3H19C19.55 3 20.0208 3.19583 20.4125 3.5875C20.8042 3.97917 21 4.45 21 5V19C21 19.55 20.8042 20.0208 20.4125 20.4125C20.0208 20.8042 19.55 21 19 21H5ZM5 19H19V5H5V19ZM7 17H14V15H7V17ZM7 13H17V11H7V13ZM7 9H17V7H7V9ZM12 4.25C12.2167 4.25 12.3958 4.17917 12.5375 4.0375C12.6792 3.89583 12.75 3.71667 12.75 3.5C12.75 3.28333 12.6792 3.10417 12.5375 2.9625C12.3958 2.82083 12.2167 2.75 12 2.75C11.7833 2.75 11.6042 2.82083 11.4625 2.9625C11.3208 3.10417 11.25 3.28333 11.25 3.5C11.25 3.71667 11.3208 3.89583 11.4625 4.0375C11.6042 4.17917 11.7833 4.25 12 4.25Z"
+                fill="#0256A4" />
+        </svg>
+
+        <p class="font-light text-sm text-black">reportes</p>
+    </div>
+
+    <div class=" hidden  lg:fixed lg:bottom-16 bottom-20 right-8 lg:flex flex-col items-center">
+        <svg class="lg:w-4" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path  d="M5 21C4.45 21 3.97917 20.8042 3.5875 20.4125C3.19583 20.0208 3 19.55 3 19V5C3 4.45 3.19583 3.97917 3.5875 3.5875C3.97917 3.19583 4.45 3 5 3H12V5H5V19H12V21H5ZM16 17L14.625 15.55L17.175 13H9V11H17.175L14.625 8.45L16 7L21 12L16 17Z"
+                fill="#111111" />
+        </svg>
+
+    </div>
+
+    <div id="full-pantalla" class=" hidden  lg:fixed bottom-8 right-8 lg:flex flex-col items-center">
+        <svg class="lg:w-4" id="full" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 21V16H5V19H8V21H3ZM16 21V19H19V16H21V21H16ZM3 8V3H8V5H5V8H3ZM19 8V5H16V3H21V8H19Z"
+                fill="#111111" />
+        </svg>
+
+        <svg id="close" class="hidden lg:w-4" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960"
+            width="20">
+            <path
+                d="M240-120v-120H120v-80h200v200h-80Zm400 0v-200h200v80H720v120h-80ZM120-640v-80h120v-120h80v200H120Zm520 0v-200h80v120h120v80H640Z" />
+        </svg>
+
+    </div>
+
+
+
+
+
+
+    <div id="modal-stock"
+        class="hidden fixed top-0 left-0 right-0 bottom-0 h-screen w-screen bg-black/35 flex items-center justify-center z-30">
+
+        <div class="w-80 bg-white rounded-lg border bg-card  shadow-sm">
+
+            <button type="button" id="close-modal-stock"
+                class=" ml-4 mt-4 text-black bg-transparent font-montserrat hover:text-gray-900 text-sm w-7 h-7 flex justify-center items-center "
+                data-modal-toggle="crud-modal">
+
+                <svg class="w-[13px] h-[13px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 14 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                </svg>
+                <span class="sr-only">Close modal</span>
+            </button>
+
+            <div class="flex flex-col space-y-2 p-6 mb-6 ">
+                <h3 class=" font-montserrat text-lg text-center font-semibold whitespace-nowrap leading-none tracking-tight ">
+                    Actualizar Stock</h3>
+                <p class="text-sm text-center text-gray-500 text-muted-foreground">Ajustar los niveles de stock</p>
+            </div>
+
+            <div class="p-6">
+                <div class="grid gap-6">
+                    <div class="flex items-center gap-4">
+
+                        <div class="grid gap-1.5">
+                            <h3 class="font-medium text-base md:text-xl  leading-none">
+                                Lampara de luz tenue
+                            </h3>
+                            <p class="text-sm leading-none text-gray-500 dark:text-gray-400">
+                                ID: 47
+                            </p>
+                        </div>
+                    </div>
+                    <div class="grid gap-2 mt-5">
+                        <label class="font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-base"
+                            for="movemento"> Movimiento
+                        </label>
+
+                        <select name="" id="movemento"
+                            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+                            <option value="1">Añadir al stock</option>
+                            <option value="2">Retirar del stock</option>
+                        </select>
+
+
+
+                    </div>
+                    <div class="grid gap-2"><label
+                            class="font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-base"
+                            for="quantity">
+                            Cantidad
+                        </label><input type="number"
+                            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                            id="quantity" min="1" value="1"></div>
+                </div>
+            </div>
+            <div class="flex items-center p-6">
+                <button
+                    class="font-montserrat inline-flex items-center hover:bg-black justify-center whitespace-nowrap rounded-md text-sm font-medium  transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50   h-10 px-4 py-2 ml-auto bg-primario text-white ">
+                    Update
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <script src="/script.js"></script>
+    <script src="../static/script.js" ></script>
+</body>
+
+</html>
