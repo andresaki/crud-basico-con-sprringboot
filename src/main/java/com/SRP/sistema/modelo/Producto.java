@@ -14,10 +14,8 @@ public class Producto {
 
     private String nombre;
     private String categoria;
-
     private int unidadesActuales;
     private int stockMinimo;
-
     private int precioUnitario;
 
     @Column(columnDefinition = "DATE NOT NULL")
@@ -25,11 +23,13 @@ public class Producto {
 
 
 
-
+    // Contructor con la creacion de fecha automaticamente
     public Producto(){
         this.fechaCreacion = LocalDate.now();
     }
 
+
+    // Getters y Setters
     public int getId() {
         return id;
     }

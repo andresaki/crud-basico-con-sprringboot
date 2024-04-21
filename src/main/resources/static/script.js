@@ -15,15 +15,12 @@ btn_header.addEventListener('click', () => {
 
 
 
+// funcion para mostrar y ocultar el menude acciones de cada registro
+function mostrarMenu(id) {
+    let menu_opciones = document.querySelector("#menu_acciones_" + id);
+    menu_opciones.classList.toggle("hidden")
+}
 
-// opciones tabla
-let btn_tabla = document.querySelector("#btn_tabla");
-let menu_opciones_tabla = document.querySelector("#menu_opciones_tabla");
-
-
-btn_tabla.addEventListener('click', () => {
-    menu_opciones_tabla.classList.toggle("hidden")
-})
 
 
 
@@ -93,7 +90,6 @@ btn_full_pantalla.addEventListener('click', () => {
 
 
 // modal stock del producto
-
 let btn_stock = document.querySelector("#boton-modal-stock");
 let modal_stock = document.querySelector("#modal-stock");
 let close_modal_stock = document.querySelector("#close-modal-stock");
@@ -113,11 +109,8 @@ close_modal_stock.addEventListener('click', () => {
 // menu_filtro
 let btn_filtro = document.querySelector("#filtro")
 let menu_filtro = document.querySelector("#menu-filtro")
-
 btn_filtro.addEventListener('click', () => {
-
     menu_filtro.classList.toggle("hidden")
-
 })
 
 
