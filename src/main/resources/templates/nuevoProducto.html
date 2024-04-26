@@ -39,7 +39,7 @@
                         <!-- Modal header -->
                         <div class="w-full   ">
 
-                            <button type="button" id="close-modal" href="javascript: history.go(-1)"
+                            <a type="button" id="close-modal" th:href="@{/inventario}"
                                 class="text-black bg-transparent font-montserrat hover:text-gray-900 text-sm w-7 h-7 flex justify-center items-center "
                                 data-modal-toggle="crud-modal">
 
@@ -49,7 +49,7 @@
                                         stroke-width="1" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
                                 </svg>
                                 <span class="sr-only">Close modal</span>
-                            </button>
+                            </a>
 
 
                             <h3 class=" text-base text-center font-medium m-3 text-black font-montserrat">
@@ -118,10 +118,10 @@
                                         Guardar
                                     </button>
 
-                                    <button type="button" href="javascript: history.go(-1)"
+                                    <a type="button" th:href="@{/inventario}"
                                             class="text-black h-10 inline-flex items-center font-medium  text-sm px-5 py-2.5 text-center">
                                         cancelar
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </form>
